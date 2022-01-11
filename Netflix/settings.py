@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-szuf4h$#p!vba(4r6kt*5xsq#o5-exe^g@0108jr*bmi9q&_1^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['188.225.44.14', 'localhost']
 
 
 # Application definition
@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -72,11 +73,11 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'netflix',
+        'NAME': 'netflix_db',
 
-        'USER': 'alisher',
+        'USER': 'postgres',
 
-        'PASSWORD': '4306563a',
+        'PASSWORD': '12345',
 
         'HOST': 'localhost',
 
@@ -124,6 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
